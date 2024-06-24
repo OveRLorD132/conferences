@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "projects": {
+    "main": {
+      "projectType": "application",
+      "prefix": "main",
+      "root": "",
+      "sourceRoot": "client/Main",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "public/js/main",
+            "index": "public/pages/main.html",
+            "browser": "client/Main/main.ts",
+            "tsConfig": "./client/tsconfig.json",
+            "assets": [
+              "client/Main/public"
+            ],
+            "polyfills": [
+              "zone.js"
+            ]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "main:build"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  }
+}
