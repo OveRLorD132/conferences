@@ -1,0 +1,28 @@
+$main-blue: #4c40f4;
+
+$main-blue-hover: #3b2efd;
+
+$hover-blue: #cecbf3;
+
+$secondary-red: #ed6a5e;
+
+$main-text: #131325;
+
+$text-light: #607182;
+
+$grey-med: #dedede;
+
+body {
+  font-family: 'Proxima Nova', sans-serif;
+  margin: 0;
+}
+
+.btn-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Proxima-Nova';
+  src: url('reg.ttf') format('truetype');
+}

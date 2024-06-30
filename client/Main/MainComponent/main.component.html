@@ -1,3 +1,33 @@
 <div class="main">
-  main page
+  <div class="menu">
+    <div class="top">
+        <div class="logo btn-link" routerLink="/">
+          conf<div class="pnt">.</div>
+        </div>
+    </div>
+    <div class="middle">
+      <img class="btn" src="public/imgs/main/home.svg"/>
+      <img class="btn" src="public/imgs/main/video.svg"/>
+      <img class="btn" src="public/imgs/main/settings.svg"/>
+    </div>
+    <div class="bottom">
+      <ng-template [ngIf]="user">
+        <img class="avtr" src="public/imgs/main/avatar.svg" />
+        <img class="logout" src="public/imgs/main/logout.svg"  />
+      </ng-template>
+      <ng-template [ngIf]="!user">
+        <img class="avtr" src="public/imgs/main/avatar.svg" />
+        <img class="login" src="public/imgs/main/login.svg" (click)="showLogin()" />
+      </ng-template>
+    </div>
+  </div>
+  <div class="content">
+
+
+  </div>
+    <ng-template [ngIf]="loginVisibility === Visibility.Visible">
+      <div class="overlay-cont">
+        <login (close)="closeLogin()" />
+      </div>
+    </ng-template>
 </div>

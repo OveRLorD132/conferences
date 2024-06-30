@@ -19,6 +19,9 @@
             ],
             "polyfills": [
               "zone.js"
+            ],
+            "styles": [
+              "client/styles.scss"
             ]
           }
         },

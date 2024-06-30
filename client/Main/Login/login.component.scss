@@ -1,0 +1,81 @@
+@import "../../styles.scss";
+
+.cont {
+  position: relative;
+  font-size: 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px 35px 40px 35px;
+  color: $main-text;
+  .header {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+
+.cont .main {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.link {
+  color: $main-blue;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.inputs {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.input {
+  padding: 10px 0 10px 0;
+  .header {
+    color: $text-light;
+    font-size: 16px;
+  }
+  .txt {
+    margin-top: 10px;
+    color: $main-text;
+    outline: none;
+    border: 2px solid $grey-med;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    width: 230px;
+    &::placeholder {
+      color: $text-light;
+    }
+  }
+}
+
+.btn {
+  background-color: $main-blue;
+  color: #fff;
+  padding: 12px 25px 12px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  //width: max-content;
+  border-radius: 10px;
+  margin-top: 10px;
+  &:hover {
+    background-color: $main-blue-hover;
+  }
+}
+
+.cross {
+  width: 18px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
