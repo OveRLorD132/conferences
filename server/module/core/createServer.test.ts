@@ -7,8 +7,6 @@ test("Server Creation", async () => {
   const server = await createServer();
   expect(server).toBeInstanceOf(Server);
 
-  expect(async () => {
-    await axios.head('http://localhost:3000/page');
-    await server.close();
-  } ).not.toThrow();
+  await expect(axios.head('http://localhost:3000/')).resolves.not.toThrow();
+  await server.close();
 })

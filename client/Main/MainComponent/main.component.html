@@ -13,7 +13,7 @@
     <div class="bottom">
       <ng-template [ngIf]="user">
         <img class="avtr" src="public/imgs/main/avatar.svg" />
-        <img class="logout" src="public/imgs/main/logout.svg"  />
+        <img class="logout" src="public/imgs/main/logout.svg" (click)="logout()" />
       </ng-template>
       <ng-template [ngIf]="!user">
         <img class="avtr" src="public/imgs/main/avatar.svg" />
@@ -27,7 +27,7 @@
   </div>
     <ng-template [ngIf]="loginVisibility === Visibility.Visible">
       <div class="overlay-cont">
-        <login (close)="closeLogin()" />
+        <login (close)="closeLogin()" (register)="createProfile($event)" (login)="userLogin($event)" />
       </div>
     </ng-template>
 </div>

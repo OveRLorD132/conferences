@@ -36,7 +36,7 @@ export default abstract class JWT {
   }
 
   private static _generatePayload(id: string, exp?: number): TokenPayload {
-    const timestamp = Date.now();
+    const timestamp = Date.now() / 1000;
 
     return {
       iat: timestamp,
@@ -55,7 +55,7 @@ export default abstract class JWT {
       throw new Error('Invalid JWT format');
     }
     if(!decoded.iat || !decoded.exp || decoded.sub === '') throw new Error('Invalid JWT format');
-    if(decoded.iat !== decoded.exp && Date.now() - decoded.exp > 0) throw new Error('Token Expired');
+    if(decoded.iat !== decoded.exp && Date.now() - decoded.exp * 1000 > 0) throw new Error('Token Expired');
 
     return decoded;
   }

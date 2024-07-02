@@ -10,5 +10,7 @@ test("Database Connect", async() => {
 
   expect(db).toBeDefined();
 
-  expect(async () => await db.client.query('SELECT 1')).not.toThrow();
+  await expect(db.client.query('SELECT 1')).resolves.not.toThrow();
+
+  await db.end();
 })

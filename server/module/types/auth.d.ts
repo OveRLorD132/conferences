@@ -11,6 +11,18 @@ export type TokenPayload = {
   sub: string,
 }
 
+export type Tokens = {
+  access_token: string,
+  refresh_token: string
+}
+
 export interface SrvRequest extends Request {
-  user?: object
+  user?: {
+    id: string
+  }
+}
+
+export interface IAuth {
+  authenticate(email: string, password: string): Promise<Tokens>;
+  register(username: string, email:string, password: string): Promise<Tokens>;
 }
