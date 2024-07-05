@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="top">
         <div class="logo btn-link" routerLink="/">
-          conf<div class="pnt">.</div>
+          <img class="logo" src="public/imgs/main/logo.png"/>
         </div>
     </div>
     <div class="middle">
@@ -22,8 +22,10 @@
     </div>
   </div>
   <div class="content">
+    <router-outlet>
 
-
+    </router-outlet>
+    <call-component [call_id]="'1'" />
   </div>
     <ng-template [ngIf]="loginVisibility === Visibility.Visible">
       <div class="overlay-cont">

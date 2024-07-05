@@ -4,6 +4,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {MainRoutingModule} from "./main-routing-module";
 import {LoginModule} from "../Login/login.module";
 import {CommonModule} from "@angular/common";
+import {CallModule} from "../Call/call.module";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {CommonModule} from "@angular/common";
     BrowserModule,
     CommonModule,
     MainRoutingModule,
-    LoginModule
+    LoginModule,
+    CallModule
   ],
   bootstrap: [MainComponent]
 })

@@ -1,5 +1,6 @@
 import {Router} from "express";
 import * as http from "node:http";
+import {Server} from 'socket.io';
 
 export type ServerConfig = {
   port: number,
@@ -9,9 +10,21 @@ export type ServerConfig = {
   token_ttl?: number
 }
 
+export type WebsocketConfig = {
+  port: number
+}
+
 export interface IServer {
-  run(): http.Server
+  run(): void
   close(): Promise<void>
+}
+
+export interface IHttpServer extends IServer {
+  http?: http.Server
+}
+
+export interface ISignalServer extends IServer {
+  server: Server
 }
 
 export interface IRouter {

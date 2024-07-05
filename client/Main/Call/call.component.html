@@ -1,0 +1,7 @@
+<div>
+  <div (click)="startCall()">Start</div>
+  <video id="video" [srcObject]="localStream" style="width: 300px; height: 300px" autoplay></video>
+    <div *ngFor="let stream of streams">
+      <video [srcObject]="stream" style="width: 300px; height: 300px" autoplay></video>
+    </div>
+</div>

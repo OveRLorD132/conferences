@@ -14,6 +14,8 @@
             "index": "public/pages/main.html",
             "browser": "client/Main/main.ts",
             "tsConfig": "./client/tsconfig.json",
+            "optimization": true,
+            "sourceMap": true,
             "assets": [
               "client/Main/public"
             ],

@@ -1,5 +1,5 @@
 import express, {Express} from "express";
-import {IRouter, IServer, ServerConfig} from "../types/server";
+import {IHttpServer, IRouter, IServer, ServerConfig} from "../types/server";
 import * as http from "node:http";
 import {IDatabase, IUsers} from "../types/db";
 import path from "path";
@@ -11,9 +11,13 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 
 
-export default class Server implements IServer {
+export default class Server implements IHttpServer {
   /** @private */
   private _http?: http.Server;
+
+  public get http() {
+    return this._http;
+  }
 
   /** @readonly */
   private readonly _server: Express
@@ -32,9 +36,8 @@ export default class Server implements IServer {
     this._setupRouters();
   }
 
-  public run(): http.Server {
+  public run(): void {
     this._http = this._server.listen(this._config.port);
-    return this._http;
   }
 
   public async close(): Promise<void> {
