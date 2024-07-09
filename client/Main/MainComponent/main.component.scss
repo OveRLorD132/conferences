@@ -36,15 +36,6 @@
       align-items: center;
       justify-content: center;
       row-gap: 25px;
-      .btn {
-        width: 24px;
-        cursor: pointer;
-        border-radius: 15px;
-        padding: 8px;
-        &:hover {
-          background-color: $hover-blue;
-        }
-      }
     }
     .bottom {
       display: flex;
@@ -55,7 +46,9 @@
     }
   }
   .content {
-
+    width: 100%;
+    position: relative;
+    padding: 40px 20px 40px 40px;
   }
 }
 
@@ -68,25 +61,36 @@
 }
 .logout {
   cursor: pointer;
+  width: 24px;
+  margin-left: -7px;
 }
 
 .login {
-  width: 30px;
+  width: 24px;
   cursor: pointer;
-  margin-left: -10px;
-}
-
-.overlay-cont {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(129, 129, 129, 0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-left: -6px;
 }
 
 .logo {
   height: 22px;
+}
+
+.img-cont {
+  padding: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  &.active {
+    background-color: $hover-blue;
+  }
+  &:hover {
+    background-color: $hover-blue;
+  }
+  .btn {
+    width: 24px;
+  }
 }

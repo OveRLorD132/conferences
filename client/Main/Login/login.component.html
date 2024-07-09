@@ -1,26 +1,28 @@
 <div [ngClass]="{'cont': true, 'register-cont': overlayType === OverlayType.Registration}">
   <img class="cross" src="public/imgs/main/close.svg" (click)="closeDialog()"/>
-  <div class="header">{{overlayType === OverlayType.Login ? 'Login' : 'Registration'}}</div>
+  <div class="header" style="font-weight: bold; font-size: 22px;">{{overlayType === OverlayType.Login ? 'Login' : 'Registration'}}</div>
   <div class="main">{{overlayType === OverlayType.Login ? 'Don\'t have an account?' : 'Already have an account?'}}
     <div class="link" (click)="swapOverlay()">{{overlayType === OverlayType.Login ? 'Register' : 'Login'}}</div>
   </div>
 
   <div class="inputs">
-    <ng-template [ngIf]="overlayType === OverlayType.Registration">
+    <form (submit)="endInput()">
+      <ng-template [ngIf]="overlayType === OverlayType.Registration">
+        <div class="input">
+          <div class="header">Username</div>
+          <input class="txt" [(ngModel)]="username" #ctrl="ngModel" required placeholder="Username" type="text" />
+        </div>
+      </ng-template>
       <div class="input">
-        <div class="header">Username</div>
-        <input class="txt" [(ngModel)]="username" #ctrl="ngModel" required placeholder="Username" type="text" />
+        <div class="header">Email</div>
+        <input class="txt" [(ngModel)]="email" #ctrl="ngModel" required placeholder="Email" type="text" />
       </div>
-    </ng-template>
-    <div class="input">
-      <div class="header">Email</div>
-      <input class="txt" [(ngModel)]="email" #ctrl="ngModel" required placeholder="Email" type="text" />
-    </div>
-    <div class="input">
-      <div class="header">Password</div>
-      <input class="txt" [(ngModel)]="password" #ctrl="ngModel" required placeholder="Password" type="password" />
+      <div class="input">
+        <div class="header">Password</div>
+        <input class="txt" [(ngModel)]="password" #ctrl="ngModel" required placeholder="Password" type="password" />
 
-    </div>
+      </div>
+      <input class="btn" type="submit" [value]="overlayType === OverlayType.Login ? 'Login' : 'Create account'"/>
+    </form>
   </div>
-  <div class="btn" (click)="endInput()">{{overlayType === OverlayType.Login ? 'Login' : 'Create account'}}</div>
 </div>

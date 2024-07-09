@@ -2,7 +2,7 @@ import {PoolClient} from "pg";
 import {global} from "../../../global";
 import Register = global.Register;
 import User = global.User;
-import {CallRaw} from "./index";
+import {CallCreated, CallRaw} from "./index";
 
 export type DatabaseConfig = {
   user: string,
@@ -28,5 +28,7 @@ export interface IUsers {
 }
 
 export interface ICalls {
-  getCall(id: number): Promise<CallRaw>;
+  addCall(call: CallCreated): Promise<CallRaw>;
+  getCall(id: string): Promise<CallRaw>;
+  deleteCall(id: string): Promise<void>;
 }

@@ -1,9 +1,12 @@
-import {global} from "../../global";
-import Login = global.Login;
+import type {global} from "../../global";
+type Login = global.Login;
 import axios, {AxiosHeaders} from "axios";
-import Tokens = global.Tokens;
-import User = global.User;
-import Register = global.Register;
+type Tokens = global.Tokens;
+type User = global.User;
+type Register = global.Register;
+type CallCreated = global.CallCreated;
+import type {CallRaw} from "../../server/module/types";
+type Profile = global.Profile;
 
 export default class API {
   public static async login(user: Login) {
@@ -16,7 +19,7 @@ export default class API {
 
     return data.data.tokens as Tokens;
   }
-  public static async getUser(token: string): Promise<User> {
+  public static async getUser(token: string): Promise<Profile> {
     const data = await axios.get("http://localhost:3000/api/user", {
       headers: new AxiosHeaders({
         'Authorization': `Bearer ${token}`
@@ -25,4 +28,15 @@ export default class API {
 
     return data.data as User;
   }
+
+  public static async addCall(call: CallCreated, token: string) {
+    const data = await axios.post('http://localhost:3000/api/call', call, {
+      headers: new AxiosHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    })
+
+    return data.data as CallRaw
+  }
+
 }

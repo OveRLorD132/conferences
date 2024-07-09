@@ -5,6 +5,7 @@ import {MainRoutingModule} from "./main-routing-module";
 import {LoginModule} from "../Login/login.module";
 import {CommonModule} from "@angular/common";
 import {CallModule} from "../Call/call.module";
+import {ConferencesModule} from "../Conferences/conferences.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {CallModule} from "../Call/call.module";
     CommonModule,
     MainRoutingModule,
     LoginModule,
-    CallModule
+    CallModule,
+    ConferencesModule
   ],
   bootstrap: [MainComponent]
 })

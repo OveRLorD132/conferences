@@ -23,4 +23,10 @@ export namespace global {
     access_token: string,
     refresh_token: string
   }
+  export type CallCreated = {
+    user_id: string,
+    name: string,
+    description: string,
+    visibility: 'public' | 'private'
+  }
 }

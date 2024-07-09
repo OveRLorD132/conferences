@@ -6,9 +6,20 @@
         </div>
     </div>
     <div class="middle">
-      <img class="btn" src="public/imgs/main/home.svg"/>
-      <img class="btn" src="public/imgs/main/video.svg"/>
-      <img class="btn" src="public/imgs/main/settings.svg"/>
+      <div class="img-cont">
+        <img class="btn" src="public/imgs/main/home.svg"/>
+      </div>
+      <div class="img-cont" [ngClass]="{'active': videoRegExp.test(this.router.url)}">
+        <img routerLink="calls" class="btn"
+             [src]="videoRegExp.test(this.router.url)
+             ? 'public/img/main/video-act.png'
+             : 'public/img/main/video.png'"
+        />
+      </div>
+      <div class="img-cont">
+        <img class="btn" src="public/imgs/main/settings.svg"/>
+      </div>
+
     </div>
     <div class="bottom">
       <ng-template [ngIf]="user">
@@ -25,7 +36,6 @@
     <router-outlet>
 
     </router-outlet>
-    <call-component [call_id]="'1'" />
   </div>
     <ng-template [ngIf]="loginVisibility === Visibility.Visible">
       <div class="overlay-cont">

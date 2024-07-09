@@ -6,6 +6,7 @@ import API from "../../module/API";
 import Tokens = global.Tokens;
 import User = global.User;
 import Register = global.Register;
+import {Router} from "@angular/router";
 
 @Component({
   'selector': 'main',
@@ -22,6 +23,10 @@ export class MainComponent {
   public closeLogin(): void {
     this.loginVisibility = Visibility.Hidden;
   }
+
+  public videoRegExp = /calls/;
+
+  constructor(public router: Router) {}
 
   private ngOnInit(): void {
     const stored = localStorage.getItem('conf_tokens');
