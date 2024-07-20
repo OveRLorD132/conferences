@@ -17,7 +17,7 @@ export class SocketServer implements ISignalServer {
   constructor(srv: IHttpServer, calls: ICalls) {
     this._io = new Server(srv.http, {
       cors: {
-        origin: "http://localhost:4200",
+        origin: "http://localhost:5173",
         methods: '*'
       }
     });

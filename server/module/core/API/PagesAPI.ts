@@ -19,7 +19,7 @@ export default class PagesAPI implements IRouter {
 
   private _setupRoutes(): void {
     this._router.get('/', (req, res) => {
-      res.sendFile(path.resolve(this._root, 'public/js/main/browser/main.html'));
+      res.sendFile(path.resolve(this._root, 'public/index.html'));
     })
   }
 }

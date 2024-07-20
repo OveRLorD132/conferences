@@ -7,16 +7,20 @@
         </div>
       </div>
       <div class="middle">
-        <div class="img-cont">
-          <img alt="home" class="btn" :src="homeUrl"/>
-        </div>
-        <div class="img-cont" :class="{'active': videoRegExp.test(url)}">
-          <img alt="calls" class="btn"
-               :src="videoRegExp.test(url)
+        <RouterLink style="display: flex; align-items: center" to="/">
+          <div class="img-cont" :class="{'active': route.path === '/'}">
+            <img alt="home" class="btn" :src="homeUrl"/>
+          </div>
+        </RouterLink>
+        <RouterLink style="display: flex; align-items: center" to="/calls">
+          <div class="img-cont" :class="{'active': /calls/.test(route.path)}">
+            <img alt="calls" class="btn"
+                 :src="/calls/.test(route.path)
              ? videoUrl
              : callUrl"
-          />
-        </div>
+            />
+          </div>
+        </RouterLink>
         <div class="img-cont">
           <img alt="settings" class="btn" :src="settingsUrl"/>
         </div>
@@ -34,7 +38,9 @@
       </div>
     </div>
     <div class="content">
-      <Conferences />
+      <router-view>
+
+      </router-view>
     </div>
     <template v-if="loginVisibility === Visibility.Visible">
       <div class="overlay-cont">
@@ -64,10 +70,11 @@
   type Tokens = global.Tokens;
   import {Visibility} from "./types/enum";
   import Login from "./components/Login.vue";
+  import {useRoute, useRouter} from "vue-router";
   type Register = global.Register;
 
-  const videoRegExp = /video/;
-  const url = ref<string>('video');
+  const router = useRouter();
+  const route = useRoute();
 
   let user = ref<Profile>();
 
@@ -249,11 +256,11 @@ body {
 }
 .logout {
   cursor: pointer;
-  width: 24px;
+  width: 32px;
 }
 
 .login {
-  width: 24px;
+  width: 32px;
   cursor: pointer;
 }
 

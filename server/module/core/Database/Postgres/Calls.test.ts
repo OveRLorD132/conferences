@@ -16,7 +16,7 @@ test("Testing Calls Table", async () => {
   const calls = new Calls(db.client);
 
   const call: CallCreated = {
-    user_id: '4',
+    user_id: '2',
     name: 'Name',
     description: 'Description',
     visibility: 'public'
@@ -26,7 +26,7 @@ test("Testing Calls Table", async () => {
 
   await expect(calls.getCall(added.id)).resolves.toEqual({
     id: added.id,
-    user_id: '4',
+    user_id: '2',
     name: 'Name',
     description: 'Description',
     visibility: 'public'

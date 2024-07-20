@@ -132,6 +132,9 @@ $select-back: #EEEDFB;
 }
 
 .call-form {
+  .header {
+    margin-bottom: 0;
+  }
   .txt {
     width: 400px;
   }

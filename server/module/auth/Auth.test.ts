@@ -17,12 +17,12 @@ test("Testing Auth class", async () => {
   const users: IUsers = new Users(db.client);
   const auth: IAuth = new Auth(users, createServerConfig());
 
-  const tokens: Tokens = await auth.authenticate('admin@gmail', 'password');
+  const tokens: Tokens = await auth.authenticate('email', 'password');
 
   expect(tokens).toBeDefined();
 
   await expect(auth.authenticate('invalid user email', 'password')).rejects.toBeDefined();
-  await expect(auth.authenticate('admin@gmail', 'invalid password')).rejects.toBeDefined();
+  await expect(auth.authenticate('email', 'invalid password')).rejects.toBeDefined();
 
   const tokensRegister: Tokens = await auth.register('new user', 'user@email', 'password');
 
