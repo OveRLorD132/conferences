@@ -25,6 +25,13 @@ export default class Calls implements ICalls {
     return data.rows[0] as CallRaw;
   }
 
+  public async getCalls(id: string): Promise<CallRaw[]> {
+    const data = await this._client.query(`SELECT id, user_id, name, description, visibility 
+        FROM calls WHERE user_id = $1`, [id]);
+
+    return data.rows as CallRaw[];
+  }
+
   public async deleteCall(id: string): Promise<void> {
     await this._client.query(`DELETE FROM calls WHERE id = $1`, [id]);
   }

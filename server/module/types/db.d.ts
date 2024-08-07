@@ -30,5 +30,6 @@ export interface IUsers {
 export interface ICalls {
   addCall(call: CallCreated): Promise<CallRaw>;
   getCall(id: string): Promise<CallRaw>;
+  getCalls(id: string): Promise<CallRaw[]>;
   deleteCall(id: string): Promise<void>;
 }

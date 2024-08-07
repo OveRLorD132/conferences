@@ -18,3 +18,8 @@ export type CallUser = {
   id: string,
   socket_id: string
 }
+
+export type Media = {
+  cam: boolean,
+  micro: boolean
+}

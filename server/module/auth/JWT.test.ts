@@ -25,4 +25,10 @@ test("Testing Token Generation", () => {
 
   expect(() => JWT.decodeToken(generated.split('.')[0], 'secret')).toThrow()
 
+  const letters = generated.split('');
+  letters.pop();
+  const editedToken = letters.join('');
+  console.log(editedToken);
+  expect(() => JWT.decodeToken(editedToken, 'secret')).toThrow();
+
 })

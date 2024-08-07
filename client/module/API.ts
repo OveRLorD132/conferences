@@ -30,7 +30,7 @@ export default class API {
   }
 
   public static async addCall(call: CallCreated, token: string) {
-    const data = await axios.post('http://localhost:3000/api/call', call, {
+    const data = await axios.post('http://localhost:3000/api/calls', call, {
       headers: new AxiosHeaders({
         'Authorization': `Bearer ${token}`
       })
@@ -38,5 +38,13 @@ export default class API {
 
     return data.data as CallRaw
   }
+  public static async getCalls(token: string) {
+    const data = await axios.get("http://localhost:3000/api/calls/list", {
+      headers: new AxiosHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    })
 
+    return data.data as CallRaw[]
+  }
 }
